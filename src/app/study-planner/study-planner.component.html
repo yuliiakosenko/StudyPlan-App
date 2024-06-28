@@ -1,0 +1,50 @@
+<p>
+  <div class="study-planner">
+    <h2>Study Planner</h2>
+    <form [formGroup]="studyForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="topic">Topic of Study *</label>
+        <input type="text" id="topic" formControlName="topic" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="duration">Duration *</label>
+        <input type="text" id="duration" formControlName="duration" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="background">Background/Experience *</label>
+        <textarea id="background" formControlName="background" class="form-control"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="startDate">Start Date *</label>
+        <input type="date" id="startDate" formControlName="startDate" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="studyDays">Days Available for Study</label>
+        <div>
+          <label><input type="checkbox" formControlName="studyDays" value="Monday"> Monday</label>
+          <label><input type="checkbox" formControlName="studyDays" value="Tuesday"> Tuesday</label>
+          <label><input type="checkbox" formControlName="studyDays" value="Wednesday"> Wednesday</label>
+          <label><input type="checkbox" formControlName="studyDays" value="Thursday"> Thursday</label>
+          <label><input type="checkbox" formControlName="studyDays" value="Friday"> Friday</label>
+          <label><input type="checkbox" formControlName="studyDays" value="Saturday"> Saturday</label>
+          <label><input type="checkbox" formControlName="studyDays" value="Sunday"> Sunday</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="studyFrames">Times Available for Study</label>
+        <div>
+          <label><input type="time" formControlName="studyFrames" multiple> Specify times</label>
+        </div>
+      </div>
+      <button type="submit" [disabled]="!studyForm.valid" class="btn btn-primary">Generate Study Plan</button>
+    </form>
+  
+    <div *ngIf="studySchedule.length > 0" class="study-schedule">
+      <h3>Generated Study Schedule</h3>
+      <ul>
+        <li *ngFor="let item of studySchedule">{{ item }}</li>
+      </ul>
+    </div>
+  </div>
+
+
