@@ -1,0 +1,59 @@
+/* Add your component-specific styles here */
+.study-planner {
+    max-width: 600px;
+    margin: auto;
+
+    h2,
+    h3 {
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+
+    .form-group {
+        margin-bottom: 1rem;
+
+        label {
+            display: block;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="date"],
+        textarea {
+            width: 300px;
+            height: 150px;
+          }
+        input[type="time"] {
+            width: 100%;
+            padding: 0.5rem;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+      
+
+        div {
+            display: flex;
+            flex-wrap: wrap;
+
+            label {
+                margin-right: 1rem;
+            }
+        }
+    }
+
+    .study-schedule {
+        margin-top: 2rem;
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+    }
+}
