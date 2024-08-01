@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Study Planner</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="studyForm" (ngSubmit)="onSubmit()">
+    <ion-item>
+      <ion-label position="floating">Topic</ion-label>
+      <ion-input formControlName="topic" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Duration</ion-label>
+      <ion-input formControlName="duration" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Start Date</ion-label>
+      <ion-input type="date" formControlName="startDate" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Background</ion-label>
+      <ion-input formControlName="background" required></ion-input>
+    </ion-item>
+
+    <ion-list>
+      <ion-list-header>
+        <ion-label>Study Schedule</ion-label>
+      </ion-list-header>
+      <ion-item *ngFor="let day of daysOfWeek">
+        <ion-label>{{ day }}</ion-label>
+        <ion-datetime  presentation="time" [formControlName]="'startTime_' + day"></ion-datetime>
+        <ion-datetime presentation="time" [formControlName]="'endTime_' + day"></ion-datetime>
+      </ion-item>
+    </ion-list>
+    
+
+    <ion-button expand="full" type="submit">Generate StudyPlan</ion-button>
+  </form>
+
+  <ion-list *ngIf="studySchedule.length > 0">
+    <ion-list-header>
+      <ion-label>Study Schedule</ion-label>
+    </ion-list-header>
+    <ion-item *ngFor="let item of studySchedule">
+      <ion-label>{{ item }}</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

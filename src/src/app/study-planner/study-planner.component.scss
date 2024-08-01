@@ -1,0 +1,36 @@
+.study-planner {
+    max-width: 600px;
+    margin: auto;
+  
+    .form-group {
+      margin-bottom: 1rem;
+  
+      label {
+        display: block;
+        font-weight: bold;
+      }
+  
+      ion-input,
+      ion-datetime,
+      ion-textarea {
+        width: 100%;
+        padding: 0.5rem;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+    }
+  
+    .study-schedule {
+      margin-top: 2rem;
+  
+      ul {
+        list-style: none;
+        padding: 0;
+      }
+  
+      li {
+        margin-bottom: 0.5rem;
+      }
+    }
+  }
+  
